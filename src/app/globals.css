@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #282828;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
+
+.link {
+  color: #282828;
+  text-decoration: none;
+  transition: color 0.1s ease;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #d43c3c;
+}
