@@ -7,7 +7,17 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "VotON: Decentralized Voting Platform",
   description: "Vote in the TON blockchain using your EVM wallet",
-  author: "Two and a Half Grams",
+  authors: [{ name: "Two and a Half Grams" }],
+  keywords: [
+    "VotON",
+    "decentralized",
+    "voting",
+    "platform",
+    "TON",
+    "blockchain",
+    "EVM",
+    "wallet",
+  ],
 };
 
 export default function RootLayout({
@@ -34,7 +44,7 @@ export default function RootLayout({
         </header>
         {children}
         <footer className="mt-12 text-gray-600 text-sm text-center pb-12">
-          &copy; {currentYear} {metadata.author}
+          &copy; {currentYear} {metadata.authors[0].name}
         </footer>
       </body>
     </html>
