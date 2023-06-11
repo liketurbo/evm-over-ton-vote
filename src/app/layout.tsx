@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -23,30 +24,12 @@ export default function RootLayout({
       >
         <header className="pt-12">
           <nav className="flex items-start justify-center mb-24">
-            <a
-              href="https://ecrecover-tool.com"
-              className="link mr-4"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/" className="link mr-4">
+              Home
+            </Link>
+            <Link href="/ecrecover-tool" className="link">
               ECRecover Tool
-            </a>
-            <a
-              href="https://current-votings.com"
-              className="link mr-4"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Currently Ongoing Votings
-            </a>
-            <a
-              href="https://voting-contract-deploy-tool.com"
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Voting Contract Deploy Tool
-            </a>
+            </Link>
           </nav>
         </header>
         {children}

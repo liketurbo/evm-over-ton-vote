@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="w-2/5">
+    <main className="w-2/5 flex-grow">
       <h1 className="text-4xl font-semibold mb-8 text-center">
         Vote in TON using EVM wallet
       </h1>
