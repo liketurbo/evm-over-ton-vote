@@ -28,7 +28,7 @@ const mockBallots = [
   {
     id: 2,
     title: "Make next youtube video about Tact language features",
-    status: "finished",
+    status: "passed",
     eligibleWallets: [
       "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD",
       "0x8F34beE39052EEF6d247c4f635F9598c57DD8483",

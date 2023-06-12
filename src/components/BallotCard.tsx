@@ -7,13 +7,17 @@ import VotePopup from "@/components/VotePopup";
 
 export const statusEmoji: Record<string, string> = {
   progress: "⏳",
-  finished: "✅",
+  passed: "✅",
+  declined: "❌",
+  draw: "🏳️",
 };
+
+type BallotStatus = "progress" | "passed" | "declined" | "draw";
 
 export interface Ballot {
   id: number;
   title: string;
-  status: "progress" | "finished";
+  status: BallotStatus;
   eligibleWallets: string[];
   toPassNeed: number;
 }
@@ -23,12 +27,27 @@ interface BallotCardProps {
   ballot: Ballot;
 }
 
-function renderRequiredVotesText(ballot: Ballot) {
+function getRequiredVotesText(ballot: Ballot) {
   if (ballot.toPassNeed === ballot.eligibleWallets.length) {
     return "(All votes required)";
   } else {
     const voteLabel = ballot.toPassNeed === 1 ? "vote" : "votes";
     return `(Min. ${ballot.toPassNeed} ${voteLabel} required)`;
+  }
+}
+
+function getStatusText(status: BallotStatus) {
+  switch (status) {
+    case "progress":
+      return "(In progress)";
+    case "passed":
+      return "(Passed)";
+    case "declined":
+      return "(Declined)";
+    case "draw":
+      return "(Draw)";
+    default:
+      return "";
   }
 }
 
@@ -64,7 +83,7 @@ const BallotCard: React.FC<BallotCardProps> = ({ ballot, className = "" }) => {
           <p className="ml-auto">
             {statusEmoji[ballot.status]}{" "}
             <span className="text-xs font-medium uppercase">
-              {ballot.status === "progress" ? "(In progress)" : "(Finished)"}
+              {getStatusText(ballot.status)}
             </span>
           </p>
         </div>
@@ -82,7 +101,7 @@ const BallotCard: React.FC<BallotCardProps> = ({ ballot, className = "" }) => {
               ))}
           </div>
           <span className="text-xs font-medium uppercase">
-            {renderRequiredVotesText(ballot)}
+            {getRequiredVotesText(ballot)}
           </span>
         </p>
         <div
