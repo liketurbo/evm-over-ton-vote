@@ -48,8 +48,10 @@ const mockBallots = [
 
 export default function BallotsDashboard() {
   return (
-    <main className="flex-grow">
-      <h2 className="text-2xl font-bold mb-4">Ballots Dashboard</h2>
+    <main>
+      <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
+        Ballots Dashboard
+      </h2>
       {mockBallots.map((ballot, i) => (
         <BallotCard
           key={ballot.id}

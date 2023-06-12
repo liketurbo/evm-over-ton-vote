@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="w-2/5 flex-grow">
+    <main className="w-2/5">
       <div
         className="grid mb-8"
         style={{

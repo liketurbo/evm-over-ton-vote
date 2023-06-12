@@ -15,3 +15,7 @@ body {
 .link:hover {
   color: #d43c3c;
 }
+
+#root.modal-open {
+  overflow: hidden;
+}

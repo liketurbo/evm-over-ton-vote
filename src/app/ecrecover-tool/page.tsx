@@ -115,10 +115,10 @@ export default function ECRecoverTool() {
   );
 
   return (
-    <main className="flex-grow">
+    <main>
       {showPopup && <MetamaskPopup onClose={handleOkClick} />}
       <div className="bg-gray-100 p-4 mb-8 rounded">
-        <h2 className="text-xl font-bold mb-4">Sign Data</h2>
+        <h2 className="text-xl font-semibold mb-4">Sign Data</h2>
         <form onSubmit={handleDataSign}>
           <Input
             name="data"
@@ -145,7 +145,7 @@ export default function ECRecoverTool() {
       </div>
 
       <div className="bg-gray-100 p-4 rounded">
-        <h2 className="text-xl font-bold mb-4">
+        <h2 className="text-xl font-semibold mb-4">
           Recover Public from Signature
         </h2>
         <form onSubmit={handleExtractPublicKey}>

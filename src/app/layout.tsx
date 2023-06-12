@@ -28,27 +28,28 @@ export default function RootLayout({
   const currentYear = new Date().getFullYear();
 
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} flex flex-col items-center justify-between min-h-screen`}
-      >
-        <header className="pt-12">
-          <nav className="flex items-start justify-center mb-24">
-            <Link href="/" className="link mr-4">
-              Home
-            </Link>
-            <Link href="/ecrecover-tool" className="link mr-4">
-              ECRecover Tool
-            </Link>
-            <Link href="/ballots" className="link">
-              Ballots Dashboard
-            </Link>
-          </nav>
-        </header>
-        {children}
-        <footer className="mt-12 text-gray-600 text-sm text-center pb-12">
-          &copy; {currentYear} {metadata.authors[0].name}
-        </footer>
+    <html className="h-full" lang="en">
+      <body className={`${inter.className} h-full flex flex-col`}>
+        <div id="root" className="flex flex-col flex-1">
+          <header className="pt-12">
+            <nav className="flex items-start justify-center mb-24">
+              <Link href="/" className="link mr-4">
+                Home
+              </Link>
+              <Link href="/ecrecover-tool" className="link mr-4">
+                ECRecover Tool
+              </Link>
+              <Link href="/ballots" className="link">
+                Ballots Dashboard
+              </Link>
+            </nav>
+          </header>
+          <div className="flex flex-col flex-grow items-center">{children}</div>
+          <footer className="mt-12 text-gray-600 text-sm text-center pb-12 flex-shrink-0">
+            &copy; {currentYear} {metadata.authors[0].name}
+          </footer>
+        </div>
+        <div id="modal-root"></div>
       </body>
     </html>
   );
