@@ -37,8 +37,11 @@ export default function RootLayout({
             <Link href="/" className="link mr-4">
               Home
             </Link>
-            <Link href="/ecrecover-tool" className="link">
+            <Link href="/ecrecover-tool" className="link mr-4">
               ECRecover Tool
+            </Link>
+            <Link href="/ballots" className="link">
+              Ballots Dashboard
             </Link>
           </nav>
         </header>

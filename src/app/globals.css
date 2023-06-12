@@ -8,8 +8,6 @@ body {
 }
 
 .link {
-  color: #282828;
-  text-decoration: none;
   transition: color 0.1s ease;
   text-decoration: underline;
 }
