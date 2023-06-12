@@ -81,7 +81,6 @@ export default function BallotsDashboard() {
 
         const containerClasses = cls("p-4 border border-gray-300 rounded", {
           "mb-4": index !== mockBallots.length - 1,
-          "opacity-75": ballot.status === "finished",
         });
 
         return (
