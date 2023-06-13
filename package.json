@@ -1,5 +1,5 @@
 {
-  "name": "0-gas-vote-ton",
+  "name": "evm-over-ton-vote",
   "version": "0.1.0",
   "private": true,
   "scripts": {
