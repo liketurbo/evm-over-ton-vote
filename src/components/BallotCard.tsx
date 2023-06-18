@@ -87,7 +87,7 @@ const BallotCard: React.FC<BallotCardProps> = ({ ballot, className = "" }) => {
             </span>
           </p>
         </div>
-        <p className="flex mb-4">
+        <div className="flex mb-4">
           <div className="flex">
             {Array(greenBars)
               .fill(0)
@@ -103,7 +103,7 @@ const BallotCard: React.FC<BallotCardProps> = ({ ballot, className = "" }) => {
           <span className="text-xs font-medium uppercase">
             {getRequiredVotesText(ballot)}
           </span>
-        </p>
+        </div>
         <div
           className={cls(
             "flex flex-col",
