@@ -52,8 +52,8 @@ function getStatusText(status: BallotStatus) {
 }
 
 const BallotCard: React.FC<BallotCardProps> = ({ ballot, className = "" }) => {
-  const [expandWallets, setExpandWallets] = useState<boolean>(false);
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [expandWallets, setExpandWallets] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const toggleExpandWallets = useCallback(() => {
     setExpandWallets((prevState) => !prevState);
