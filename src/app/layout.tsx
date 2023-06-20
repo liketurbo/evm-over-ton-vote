@@ -39,6 +39,9 @@ export default function RootLayout({
               <Link href="/ecrecover-tool" className="link mr-4">
                 ECRecover Tool
               </Link>
+              <Link href="/deploy-contract" className="link mr-4">
+                Deploy Contract
+              </Link>
               <Link href="/ballots" className="link">
                 Ballots Dashboard
               </Link>

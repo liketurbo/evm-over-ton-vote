@@ -127,6 +127,8 @@ export default function ECRecoverTool() {
             onChange={handleDataToSignChange}
             required
             className="mb-6"
+            size="small"
+            labelInline
           />
           <Button type="submit" className="mb-2">
             Sign data
@@ -154,16 +156,18 @@ export default function ECRecoverTool() {
             label="Data that was signed"
             value={extractedData}
             onChange={handleExtractDataChange}
-            required
             className="mb-2"
+            size="small"
+            labelInline
           />
           <Input
             name="signature"
             label="Signature"
             value={extractedSignature}
             onChange={handleExtractSignatureChange}
-            required
             className="mb-6"
+            size="small"
+            labelInline
           />
           <Button type="submit" className="mb-2">
             Extract public key
