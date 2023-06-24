@@ -1,0 +1,66 @@
+#include "imports/stdlib.fc";
+
+const op::vote = "op::vote"c;
+
+global int from_hash;
+
+;; load_data populates storage variables using stored data
+() load_data() impure {
+    var ds = get_data().begin_parse();
+
+    from_hash = ds~load_uint(256);
+
+    ds.end_parse();
+}
+
+;; save_data stores storage variables as a cell into persistent storage
+() save_data() impure {
+    set_data(
+        begin_cell()
+           .store_uint(from_hash, 256)
+           .end_cell()
+    );
+}
+
+(int, int, int) ecrecover(int hash, int v, int r, int s) asm "ECRECOVER";
+
+int keccak256(
+    slice p_1,
+    slice p_2,
+    slice p_3,
+    int n
+) asm "HASHEXT_KECCAK256";
+
+;; recv_internal is the main function of the contract and is called when it receives a message from other contracts
+() recv_internal(int my_balance, int msg_value, cell in_msg_full, slice in_msg_body) impure {
+    if (in_msg_body.slice_empty?()) { ;; ignore all empty messages
+        return ();
+    }
+
+    slice cs = in_msg_full.begin_parse();
+    int flags = cs~load_uint(4);
+    if (flags & 1) { ;; ignore all bounced messages
+        return ();
+    }
+
+    slice p_1 = "\x19Ethereum Signed Message:\n";
+    slice p_2 = "72";
+    slice p_3 = cs~load_msg_addr();
+    from_hash = keccak256(p_1, p_2, p_3, 3);
+    save_data();
+
+    return ();
+}
+
+slice get_voting_issue() method_id {
+    return get_data().begin_parse().preload_bits(64 * 8);
+}
+
+int get_votes_required() method_id {
+    return get_data().begin_parse().skip_bits(64 * 8).preload_uint(32);
+}
+
+int get_keccak256_hash() method_id {
+    load_data();
+    return from_hash;
+}
